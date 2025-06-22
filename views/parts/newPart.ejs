@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+</head>
+<body>
+  <%- include('../layouts/header') %>
+
+  <h1>Add New Part</h1>
+
+  <form action="/parts/new" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" name="name" required>
+
+    <label for="description">Description:</label>
+    <textarea name="description"></textarea>
+
+    <label for="manufacturer">Manufacturer:</label>
+    <input type="text" name="manufacturer">
+
+    <label for="part_number">Part Number:</label>
+    <input type="text" name="part_number">
+
+    <label for="price">Price (£):</label>
+    <input type="number" name="price" step="0.01" required>
+
+    <label for="quantity">Quantity:</label>
+    <input type="number" name="quantity" required>
+
+    <label for="category_id">Category:</label>
+    <select name="category_id" required>
+      <% categories.forEach(category => { %>
+        <option value="<%= category.id %>"><%= category.name %></option>
+      <% }) %>
+    </select>
+
+    <label for="brand_id">Brand:</label>
+    <select name="brand_id">
+      <% brands.forEach(brand => { %>
+        <option value="<%= brand.id %>"><%= brand.name %></option>
+      <% }) %>
+    </select>
+
+    <button type="submit">Add Part</button>
+  </form>
+
+  <a href="/parts">Back to Parts</a>
+
+  <%- include('../layouts/footer') %>
+</body>
+</html>

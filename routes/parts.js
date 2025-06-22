@@ -5,8 +5,11 @@ const partController = require("../controllers/partsController");
 // Define routes
 router.get("/", partController.list);
 
-router.get("/new", (req, res) => {
-  res.send("New Part Page");
-});
+router.get("/new", partController.newPart);
+router.get("/:id/edit", partController.editPartForm);
+router.get("/:id/delete", partController.deletePart);
+
+router.post("/new", partController.createPart);
+router.post("/:id", partController.updatePart);
 
 module.exports = router;

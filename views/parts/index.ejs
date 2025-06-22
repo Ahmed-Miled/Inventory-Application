@@ -4,6 +4,7 @@
     <title><%= title %></title>
 </head>
 <body>
+    <%- include('../layouts/header') %>
     <h1>All parts</h1>    
     <p>Manage your car parts efficiently with our intuitive interface.</p>
     
@@ -16,6 +17,8 @@
                         <span class="badge"><%= part.price %> £</span>
                         <span><%= part.quantity %> in stock</span>
                         <span class="badge"><%= part.categoryName %></span>
+                        <a href="/parts/<%= part.id %>/edit">Edit</a>
+                        <a href="/parts/<%= part.id %>/delete">Delete</a>
                     </li>
                 <% }) %>
             </ul>
@@ -27,6 +30,6 @@
     </div>
     
     <a href="/">back home</a>
-
+    <%- include('../layouts/footer') %>
 </body>
 </html>
