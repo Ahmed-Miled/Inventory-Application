@@ -12,12 +12,13 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 
 // Routes
-app.use('/categories', categoriesRoutes);
-app.use('/parts', partsRoutes);
 
 app.get('/', (req, res) => {
   res.render('home');
 });
+
+app.use('/categories', categoriesRoutes);
+app.use('/parts', partsRoutes);
 
 
 PORT = process.env.PORT || 3000;

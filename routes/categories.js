@@ -1,9 +1,13 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
+const categoriesController = require("../controllers/categoriesController");
 
-// Define routes
-router.get('/', (req, res) => {
-  res.send('All categories');
+// Good routes
+router.get("/", categoriesController.list);
+
+router.get("/new", (req, res) => {
+  res.send("New Category Page");
+  //res.render("categories/new", { title: "New Category" });
 });
 
-module.exports = router; 
+module.exports = router;

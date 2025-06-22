@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title><%= title %></title>
+</head>
+<body>
+    <h1>All parts</h1>    
+    <p>Manage your car parts efficiently with our intuitive interface.</p>
+    
+    <div class="parts">
+        <% if (parts.length > 0) { %>
+            <ul>
+                <% parts.forEach(part => { %>
+                    <li>
+                        <a href="/parts/<%= part.id %>"><%= part.name %></a>
+                        <span class="badge"><%= part.price %> £</span>
+                        <span><%= part.quantity %> in stock</span>
+                        <span class="badge"><%= part.categoryName %></span>
+                    </li>
+                <% }) %>
+            </ul>
+        <% } else { %>
+            <p>No parts found. Please add some.</p>
+        <% } %>
+
+        <a href="/parts/new" class="btn btn-primary">Add New Part</a>
+    </div>
+    
+    <a href="/">back home</a>
+
+</body>
+</html>

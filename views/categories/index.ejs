@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title><%= title %></title>
+</head>
+<body>
+    <h1>Track. Organize. Optimize your car parts stock.</h1>
+    <p>Easily manage categories, quantities, and suppliers — all in one place.</p>
+
+    <div class="categories">
+        <% if (categories.length > 0) { %>
+            <ul>
+                <% categories.forEach(category => { %>
+                    <li>
+                        <a href="/categories/<%= category.id %>"><%= category.name %></a>
+                        <span class="badge"><%= category.parts.length %> part(s)</span>
+                    </li>
+                <% }) %>
+            </ul>
+        <% } else { %>
+            <p>No categories found. Please add some.</p>
+        <% } %>
+
+        <a href="/categories/new" class="btn btn-primary">Add New Category</a>
+    </div>
+
+    <a href="/">back home</a>
+</body>
+</html>
