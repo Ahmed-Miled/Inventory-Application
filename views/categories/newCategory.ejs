@@ -1,0 +1,22 @@
+<%- include('../layouts/header') %>
+
+<div class="new-category">
+  <h1>New Category</h1>
+  <!--
+  <% if (category.error !== null) { %>
+  <div class="error">
+    <p><%= category.error %></p>
+  </div>
+  <% } %>-->
+  <form action="/categories/new" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" />
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" rows="4" cols="50"></textarea
+    ><br />
+    <input type="submit" value="Submit" />
+  </form>
+  <a href="/categories"> Back to categories</a>
+</div>
+
+<%- include('../layouts/footer') %>

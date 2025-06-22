@@ -16,7 +16,7 @@ exports.list = async (req, res) => {
         `);
 
     const parts = partsResult.rows;
-    console.log("Fetched parts:", parts);
+    //console.log("Fetched parts:", parts);
     res.render("parts/index", {
       title: "All Parts",
       parts: parts.map((p) => ({

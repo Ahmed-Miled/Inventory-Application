@@ -4,6 +4,8 @@
     <title><%= title %></title>
 </head>
 <body>
+
+    <%- include('../layouts/header') %>
     <h1>Track. Organize. Optimize your car parts stock.</h1>
     <p>Easily manage categories, quantities, and suppliers — all in one place.</p>
 
@@ -14,6 +16,8 @@
                     <li>
                         <a href="/categories/<%= category.id %>"><%= category.name %></a>
                         <span class="badge"><%= category.parts.length %> part(s)</span>
+                        <a href="/categories/<%= category.id %>/showCategorie" >Edit</a>
+                        <a href="/categories/<%= category.id %>/delete">Delete</a>
                     </li>
                 <% }) %>
             </ul>
@@ -25,5 +29,7 @@
     </div>
 
     <a href="/">back home</a>
+<%- include('../layouts/footer') %>
+
 </body>
 </html>
