@@ -1,0 +1,20 @@
+<!--form to add a new brand-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>    
+</head>
+<body>
+    <%- include('../layouts/header') %>
+    <h1>Add New Brand</h1>
+    <form action="/brands/new" method="POST">
+        <label for="name">Brand Name:</label>
+        <input type="text" name="name" required>
+        <button type="submit">Add Brand</button>
+    </form>
+    <a href="/brands">Back to Brands</a>
+    <%- include('../layouts/footer') %>
+</body>
+</html>

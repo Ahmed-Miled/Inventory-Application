@@ -3,6 +3,7 @@ const app = express();
 const path = require('path');
 const categoriesRoutes = require('./routes/categories');
 const partsRoutes = require('./routes/parts');
+const brandsRouters = require('./routes/brands');
 
 require('dotenv').config();
 
@@ -19,6 +20,7 @@ app.get('/', (req, res) => {
 
 app.use('/categories', categoriesRoutes);
 app.use('/parts', partsRoutes);
+app.use('/brands', brandsRouters);
 
 
 PORT = process.env.PORT || 3000;

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> <%= title %></title>
+</head>
+<body>
+    <%- include('../layouts/header') %>
+    <h1>Brands</h1>
+    <ul>
+        <% brands.forEach(brand => { %>
+            <li>
+                <a href="/brands/<%= brand.id %>"><%= brand.name %></a>
+                <form action="/brands/<%= brand.id %>" method="POST" style="display:inline;">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        <% }) %>
+    </ul>
+    <a href="/brands/new">Add New Brand</a>
+    <br>
+    <a href="/">back home</a>
+    <%- include('../layouts/footer') %>
+</body>
+</html>
