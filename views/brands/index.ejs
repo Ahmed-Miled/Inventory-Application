@@ -1,26 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> <%= title %></title>
-</head>
-<body>
-    <%- include('../layouts/header') %>
-    <h1>Brands</h1>
-    <ul>
-        <% brands.forEach(brand => { %>
-            <li>
-                <a href="/brands/<%= brand.id %>"><%= brand.name %></a>
-                <form action="/brands/<%= brand.id %>" method="POST" style="display:inline;">
-                    <button type="submit">Delete</button>
-                </form>
-            </li>
-        <% }) %>
-    </ul>
-    <a href="/brands/new">Add New Brand</a>
-    <br>
-    <a href="/">back home</a>
-    <%- include('../layouts/footer') %>
-</body>
-</html>
+<%- include('../layouts/header') %>
+
+<div class="container">
+  <h1>Brands</h1>
+
+  <% if (brands.length > 0) { %>
+    <div class="grid">
+      <% brands.forEach(brand => { %>
+        <div class="card">
+          <a href="/brands/<%= brand.id %>" class="brand-name"><%= brand.name %></a>
+          <form action="/brands/<%= brand.id %>" method="POST" class="inline-form">
+            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+          </form>
+        </div>
+      <% }) %>
+    </div>
+  <% } else { %>
+    <p class="empty">No brands found.</p>
+  <% } %>
+
+  <div class="action-container">
+    <a href="/brands/new" class="btn btn-primary">Add New Brand</a>
+    <a href="/" class="btn btn-secondary">Back Home</a>
+  </div>
+</div>
+
+<%- include('../layouts/footer') %>

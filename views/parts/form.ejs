@@ -1,0 +1,49 @@
+<%- include('../layouts/header') %>
+
+<div class="container">
+  <h1><%= title %></h1>
+
+  <form action="<%= formAction %>" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" name="name" value="<%= part?.name || '' %>" required>
+
+    <label for="description">Description:</label>
+    <textarea name="description"><%= part?.description || '' %></textarea>
+
+    <label for="manufacturer">Manufacturer:</label>
+    <input type="text" name="manufacturer" value="<%= part?.manufacturer || '' %>">
+
+    <label for="part_number">Part Number:</label>
+    <input type="text" name="part_number" value="<%= part?.part_number || '' %>">
+
+    <label for="price">Price (£):</label>
+    <input type="number" name="price" step="0.01" value="<%= part?.price || '' %>" required>
+
+    <label for="quantity">Quantity:</label>
+    <input type="number" name="quantity" value="<%= part?.quantity || '' %>" required>
+
+    <label for="category_id">Category:</label>
+    <select name="category_id" required>
+      <% categories.forEach(category => { %>
+        <option value="<%= category.id %>" <%= part?.category_id === category.id ? 'selected' : '' %>>
+          <%= category.name %>
+        </option>
+      <% }) %>
+    </select>
+
+    <label for="brand_id">Brand:</label>
+    <select name="brand_id">
+      <% brands.forEach(brand => { %>
+        <option value="<%= brand.id %>" <%= part?.brand_id === brand.id ? 'selected' : '' %>>
+          <%= brand.name %>
+        </option>
+      <% }) %>
+    </select>
+
+    <button type="submit" class="btn primary"><%= buttonLabel %></button>
+  </form>
+
+  <a href="/parts" class="btn">Back to Parts</a>
+</div>
+
+<%- include('../layouts/footer') %>

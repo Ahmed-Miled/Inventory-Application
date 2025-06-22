@@ -1,26 +1,19 @@
+<%- include('../layouts/header') %>
 
+<div class="container">
+  <h1>Edit Category</h1>
 
+  <form action="/categories/<%= category.id %>" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" name="name" value="<%= category.name %>" required>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title><%= title %></title>
-</head>
-<body>
-    <%- include('../layouts/header') %>
+    <label for="description">Description:</label>
+    <textarea name="description" rows="4"><%= category.description %></textarea>
 
-<h1>Edit Category</h1>
-<form action="/categories/<%= category.id %>" method="POST">
-  <label for="name">Name:</label>
-  <input type="text" name="name" value="<%= category.name %>" required>
+    <button type="submit" class="btn primary">Update</button>
+  </form>
 
-  <label for="description">Description:</label>
-  <textarea name="description"><%= category.description %></textarea>
+  <a href="/categories" class="btn">Back</a>
+</div>
 
-  <button type="submit">Update</button>
-</form>
-
-<a href="/categories">Back</a>
 <%- include('../layouts/footer') %>
-</body>
-</html>
